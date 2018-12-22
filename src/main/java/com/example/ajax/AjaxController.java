@@ -13,10 +13,12 @@ public class AjaxController {
 	
 	@GetMapping("/make")
 	public Task makeTask(
-			@RequestParam(name="description", required=false) String description) {
+			@RequestParam(name="description", required=false) String description,
+			@RequestParam(name="date", required=false) String date) {
 		Task task = new Task();
 		task.setDescription(description);
-		System.out.println(description);
+		task.setDate(date);
+		System.out.println(date);
 		return task;
 	}
 }

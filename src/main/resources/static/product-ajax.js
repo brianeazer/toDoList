@@ -1,19 +1,18 @@
 $(function() {
 	var productsTable = document.getElementById("products-table");
 	var description = document.getElementById("description");
+	var date = document.getElementById("date");
 	var button = document.getElementById("button");
 	
 	// Do a new search whenever user types into the search box.
 	button.addEventListener("click", function() {
-		doSearch(description.value);
+		doSearch();
 	});
 	
-	function doSearch(query) {
+	function doSearch() {
 		// Build the URL.
 		var url = "/make";
-		if (query) {
-			url += "?description=" + encodeURIComponent(query);
-		}
+			url += "?date=" + encodeURIComponent(date.value) + "&description=" + encodeURIComponent(description.value);
 		console.log("FETCH:", url);
 		
 		// Make the AJAX Request.
