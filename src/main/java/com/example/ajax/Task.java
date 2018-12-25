@@ -1,7 +1,14 @@
 package com.example.ajax;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Task {
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	private String description;
 	private String date;
 	private boolean completed;
@@ -39,6 +46,11 @@ public class Task {
 
 	public void setCompleted(boolean completed) {
 		this.completed = completed;
+	}
+
+	@Override
+	public String toString() {
+		return "Task [id=" + id + ", description=" + description + ", date=" + date + ", completed=" + completed + "]";
 	}
 
 	

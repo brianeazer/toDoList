@@ -2,8 +2,7 @@ $(function() {
 	var productsTable = document.getElementById("products-table");
 	var description = document.getElementById("description");
 	var date = document.getElementById("date");
-	var button = document.getElementById("button");
-	
+	var button = document.getElementById("button1");
 	// Do a new search whenever user types into the search box.
 	button.addEventListener("click", function() {
 		doSearch();
@@ -25,10 +24,10 @@ $(function() {
 			});
 	}
 	
-	function fillTable(task) {
+	function fillTable(tasks) {
 		// Clear the table and add rows one by one.
 		productsTable.innerHTML = "";
-		addRow(task);
+		tasks.forEach(addRow);
 	}
 	
 	function addRow(task) {
